@@ -100,33 +100,19 @@ In the end, after a slight correction of the angle for the side cameras, the car
 ####2. Final Model Architecture
 
 My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity. These are followed by fully connected layers.
-Here is a visualization of the architecture> (note: visualizing the architecture is optional according to the project rubric)
+Here is a visualization of the architecture: dimensions of the layers are shown on the right.
 
 ![alt text](https://github.com/MartinTomis/Cloning/blob/master/architecture.PNG "Architecture") 
 
 ####3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+I generate my own data. The dataset to train this model includes 3 laps of driving in the middle of the road, approximately 1 lap of recovery driving (recording starts when the car starts returning from the side of the road to the middle) and 1 lap of smooth driving through the curves. Only the track from the lake is used to generate data.
 
-![alt text][image2]
+Data from all 3 cameras are used, and the images are flipped, to get more images.
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
+In the process of training, I altogether generated over 3 GB of driving data, as I could not find a model that worked. My solution often was to generate additional data from the problematic road segments, if the MSE at the training and validation set were close. Adding recovery driving from the problematic segments often lead to a failure in another segment.
 
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
+The final dataset has approximately 90 000 images - these are then flipped, essentially doubling the size.
 
 I finally randomly shuffled the data set and put Y% of the data into a validation set. 
 
