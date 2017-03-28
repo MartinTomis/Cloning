@@ -56,30 +56,41 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####1. An appropriate model architecture has been employed
 
-I used architecture described [here](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) and in the lectures. My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by a dropout layers, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity.
+I used architecture described [here](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) and in the lectures. My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity.
 
 ####2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
+I tried architecture with a dropout layer (0.5 rate), but the model did not perform well, so I commented out the layer (line 97). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+To assess potential overfitting, I relied on analyzing the MSE from the training sets and the validation sets. While the rate at the validation set is slightly larger, the difference is not particularly large (in other models/datasets I tried, the validation MSE was usually 50% to 100%). I conclude that overfitting is not a substantial problem
 
 ####3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+The model used an adam optimizer, so the learning rate is adjusted automatically.
 
 ####4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+The training data include 3 laps of driving in the middle of the road, approximately 1 lap of recovery driving (recording starts when the car starts returning from the side of the road to the middle) and 1 lap of smooth driving through the curves. Only the track from the lake is used to generate data.
 
-For details about how I created the training data, see the next section. 
 
-###Model Architecture and Training Strategy
+
+###Architecture and Training Documentation
 
 ####1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+In the model development, I took the following key steps. 
+1. First model was a simple linear regression.
+2. Then it was extended to LeNet and flipped images were used. Later, images from all three cameras were used. Different croppings of input images were attempted.
+3. NVIDIA model described above was used.
+4. Different corrections to the steering angles were attempted (0.2, 0.1, 0.3, finally 0.25 was used).
 
+Most steps were accompanied by generating additional data. I would estimate that each of steps 2-3 above was run on 5 different datasets.
+
+On the driving track 1, I encountered issues on the following segments:
+1. left-turn before the bridge
+
+
+Data
 My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
