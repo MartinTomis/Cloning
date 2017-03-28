@@ -87,7 +87,12 @@ In the model development, I took the following key steps.
 Most steps were accompanied by generating additional data. I would estimate that each of steps 2-3 above was run on 5 different datasets.
 
 On the driving track 1, I encountered issues on the following segments:
-1. left-turn before the bridge
+1. left-turn before the bridge.
+2. Surprisingly, the bridge - sometimes the car hit the side.
+3. Sharp left turn after the bridge.
+4. The sharp right turn after segment 3.
+
+Often when I 
 
 
 Data
