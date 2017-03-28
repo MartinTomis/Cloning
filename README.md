@@ -92,7 +92,11 @@ On the driving track 1, I encountered issues on the following segments:
 3. Sharp left turn after the bridge.
 4. The sharp right turn after segment 3.
 
-Often when I 
+Often when I encountered such issue, I generated additional data by recovery driving in the particular segment. But quite often, this led to the car failing in another segment.
+
+In the end, after a slight correction of the angle for the side cameras, the car performed well on a lap where it previously failed.
+
+
 
 
 Data
