@@ -102,7 +102,7 @@ In the end, after a slight correction of the angle for the side cameras, the car
 My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity. These are followed by fully connected layers.
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
-![alt text][architecture.png]
+![alt text][https://github.com/MartinTomis/Cloning/blob/master/architecture.PNG]
 
 ####3. Creation of the Training Set & Training Process
 
