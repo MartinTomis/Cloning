@@ -56,7 +56,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####1. An appropriate model architecture has been employed
 
-I used architecture described [here](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) and in the lectures. My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity.
+I used architecture described [here](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) and in the lectures. My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity. These are followed by fully connected layers.
 
 ####2. Attempts to reduce overfitting in the model
 
@@ -94,28 +94,12 @@ On the driving track 1, I encountered issues on the following segments:
 
 Often when I encountered such issue, I generated additional data by recovery driving in the particular segment. But quite often, this led to the car failing in another segment.
 
-In the end, after a slight correction of the angle for the side cameras, the car performed well on a lap where it previously failed.
+In the end, after a slight correction of the angle for the side cameras, the car performed well on a dataset where it previously failed.
 
-
-
-
-Data
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
-
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
-
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
-
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
-
+My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity. These are followed by fully connected layers.
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
 ![alt text][image1]
