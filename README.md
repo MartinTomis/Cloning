@@ -1,11 +1,6 @@
 # Cloning
 #**Behavioral Cloning** 
 
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
----
 
 **Behavioral Cloning Project**
 
@@ -114,6 +109,6 @@ In the process of training, I altogether generated over 3 GB of driving data, as
 
 The final dataset has approximately 90 000 images - these are then flipped, essentially doubling the size.
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
+I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
