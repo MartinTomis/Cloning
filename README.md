@@ -56,7 +56,7 @@ I included one dropout layer between the convolutional layer with 5x5 filter and
 
 To assess potential overfitting, I relied on analyzing the MSE from the training sets and the validation sets. Without the dropout layer, the validation MSE error was usually higher than the learning error. In some models I tried, the validation MSE was usually 50% to 100% above the training error. 
 
-With the dropout rate, the validation error in most epochs actually remained below the training set MSE.
+With the dropout rate, the validation error in most epochs actually remained below the training set MSE (X axis is shifted by 1, it should start at 1).
 
 ![alt text](https://github.com/MartinTomis/Cloning/blob/master/model1_MSE.png "MSE")
 
@@ -110,6 +110,12 @@ In the process of training, I altogether generated over 3 GB of driving data, as
 
 The final dataset has approximately 90 000 images - these are then flipped, essentially doubling the size.
 
-I finally randomly shuffled the data set and put 20% of the data into a validation set. 
+I finally randomly shuffled the data set and put 20% of the data into a validation set. I think that this is a common approach, Tibshirani, Hastie and Friedman write that in a similar context of K-fold cross validation, the dataset is usually split into 5 or 10 equal parts. I used this training data for training the model. The validation set helped determine if the model was over or under fitting / the MSE graph is shown above.
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+As for the number of epochs, I tried multiple choices. First idea was to use 5. Tibshirani, Hastie and Friedman show a exampe of 5 networks from Yan LeCun's paper, suggesting that the success rate remains esentially flat after approximately 5 epochs. However, mine MSE continued decreasing at a reasonably quick rate after 5 epochs, so it may be desirable to use more. 
+
+Other argument for 5 epochs is that if I did "proper" 5-fold cross validation and used 20% of data for validation, I would do 5 "epochs". But for the neural network training, I believe the situation is slightly different, as here, unlike in the K-fold cross-validation, it is not guaranteed that all observations are used for training.  
+
+I observed that often after more than 10 epochs, the MSE for the validation set started exceeding the training set error. 
+
+In the end, I use model with 9 epochs.
