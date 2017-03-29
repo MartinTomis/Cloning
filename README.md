@@ -56,7 +56,9 @@ I included one dropout layer between the convolutional layer with 5x5 filter and
 
 To assess potential overfitting, I relied on analyzing the MSE from the training sets and the validation sets. Without the dropout layer, the validation MSE error was usually higher than the learning error. In some models I tried, the validation MSE was usually 50% to 100% above the training error. 
 
-With the dropout rate, the ). I conclude that overfitting is not a substantial problem
+With the dropout rate, the validation error in most epochs actually remained below the training set MSE.
+
+![alt text](https://github.com/MartinTomis/Cloning/blob/master/model1_MSE.png "MSE")
 
 ####3. Model parameter tuning
 
