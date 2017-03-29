@@ -9,16 +9,6 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
-
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
-
 ## Rubric Points
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
@@ -48,7 +38,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####1. An appropriate model architecture has been employed
 
-I used architecture described [here](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) and in the lectures. My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity. These are followed by fully connected layers.
+I used a slight modification of architecture described [here](https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/) and in the lectures. My model consists of 3 convolutional networks with a 5x5 filter and 2x2 stride, followed by a dropout layer, followed by two layers with a 3x3 filter. Each of the convolutional layers uses a RELU layer to introduce non-linearity. These are followed by fully connected layers. A picture of my architecture, including the dimensions at each layer, is shown below.
 
 ####2. Attempts to reduce overfitting in the model
 
@@ -62,13 +52,11 @@ With the dropout rate, the validation error in most epochs actually remained bel
 
 ####3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate is adjusted automatically.
+The model used an Adam optimizer, so the learning rate is adjusted automatically.
 
 ####4. Appropriate training data
 
 The training data include 3 laps of driving in the middle of the road, approximately 1 lap of recovery driving (recording starts when the car starts returning from the side of the road to the middle) and 1 lap of smooth driving through the curves. Only the track from the lake is used to generate data.
-
-
 
 ###Architecture and Training Documentation
 
