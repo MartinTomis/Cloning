@@ -1,6 +1,3 @@
-# Cloning
-#**Behavioral Cloning** 
-
 
 **Behavioral Cloning Project**
 
@@ -55,9 +52,11 @@ I used architecture described [here](https://devblogs.nvidia.com/parallelforall/
 
 ####2. Attempts to reduce overfitting in the model
 
-I tried architecture with a dropout layer (0.5 rate), but the model did not perform well, so I commented out the layer (line 97). 
+I included one dropout layer between the convolutional layer with 5x5 filter and the one with 3x3 filter. 
 
-To assess potential overfitting, I relied on analyzing the MSE from the training sets and the validation sets. While the rate at the validation set is slightly larger, the difference is not particularly large (in other models/datasets I tried, the validation MSE was usually 50% to 100%). I conclude that overfitting is not a substantial problem
+To assess potential overfitting, I relied on analyzing the MSE from the training sets and the validation sets. Without the dropout layer, the validation MSE error was usually higher than the learning error. In some models I tried, the validation MSE was usually 50% to 100% above the training error. 
+
+With the dropout rate, the ). I conclude that overfitting is not a substantial problem
 
 ####3. Model parameter tuning
 
